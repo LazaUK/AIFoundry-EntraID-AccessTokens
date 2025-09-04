@@ -8,6 +8,7 @@ Azure Entra ID (formerly Azure Active Directory) issues JWT access tokens, which
 ## 📑 Table of Contents:
 - [1. How to Obtain an Access Token from Entra ID](#1-how-to-obtain-an-access-token-from-entra-id)
 - [2. How to Decode the Token Using Python](#2-how-to-decode-the-token-using-python)
+- [3. Understanding Key JWT Claims](#3-understanding-key-jwt-claims)
 
 ## 1. How to Obtain an Access Token from Entra ID
 You can obtain an access token using various flows (e.g., client credentials, authorisation code). For testing purposes, the easiest way to get a valid token for your Azure AI Foundry resource is to use the following Azure CLI command:
@@ -32,6 +33,7 @@ print(json.dumps(claims, indent=4))
 ```
 
 This will print all claims in a readable JSON format.
+
 ``` JSON
 {
   "aud": "https://cognitiveservices.azure.com",
@@ -82,3 +84,21 @@ This will print all claims in a readable JSON format.
   "xms_idrel": "1 30"
 }
 ```
+
+## 3. Understanding Key JWT Claims
+Below is a brief explanation of some commonly seen claims in Azure Entra ID access tokens:
+
+| `iss`                                        | Issuer — the token authority (usually your Entra ID tenant).                    |
+| `iat` / `nbf` / `exp`                        | Issued At / Not Before / Expiry — timestamps defining token validity.           |
+| `appid`                                      | Application ID of the client requesting the token.                              |
+| `scp`                                        | Scope — delegated permissions granted to the token (e.g. `user_impersonation`). |
+| `groups`                                     | List of group object IDs the user belongs to. Used for access control.          |
+| `amr`                                        | Authentication Methods References — e.g. `mfa` means multi-factor was used.     |
+| `oid`                                        | Object ID of the user in Entra ID.                                              |
+| `tid`                                        | Tenant ID — identifies the Azure AD directory.                                  |
+| `email`, `name`, `given_name`, `family_name` | User identity attributes.                                                       |
+| `xms_ftd`, `xms_idrel`, `rh`, `aio`          | Internal Microsoft claims used for token tracing and session management.        |
+| `wids`                                       | Well-known IDs — e.g. directory roles like Global Administrator.                |
+
+> [!TIP]
+> You can cross-reference `groups` and `wids` using Microsoft Graph API to resolve them to human-readable names.
