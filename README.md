@@ -6,8 +6,8 @@ Azure Entra ID (formerly Azure Active Directory) issues JWT access tokens, which
 > This is especially useful when troubleshooting access issues or validating conditional access policies based on group claims.
 
 ## 📑 Table of Contents:
-- (1. How to Obtain an Access Token from Entra ID)[#1-how-to-obtain-an-access-token-from-entra-id]
-- (2. How to Decode the Token Using Python)[#2-how-to-decode-the-token-using-python]
+- [1. How to Obtain an Access Token from Entra ID](#1-how-to-obtain-an-access-token-from-entra-id)
+- [2. How to Decode the Token Using Python](#2-how-to-decode-the-token-using-python)
 
 ## 1. How to Obtain an Access Token from Entra ID
 You can obtain an access token using various flows (e.g., client credentials, authorisation code). For testing purposes, the easiest way to get a valid token for your Azure AI Foundry resource is to use the following Azure CLI command:
