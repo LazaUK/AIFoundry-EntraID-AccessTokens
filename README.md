@@ -28,10 +28,57 @@ payload = token.split('.')[1]
 payload += '=' * (-len(payload) % 4)
 decoded = base64.urlsafe_b64decode(payload)
 claims = json.loads(decoded)
-print(json.dumps(claims, indent=2))
+print(json.dumps(claims, indent=4))
 ```
 
 This will print all claims in a readable JSON format.
 ``` JSON
-
+{
+  "aud": "https://cognitiveservices.azure.com",
+  "iss": "https://sts.windows.net/<tenant-id>/",
+  "iat": 1756999941,
+  "nbf": 1756999941,
+  "exp": 1757004709,
+  "acr": "1",
+  "aio": "<anonymised>",
+  "altsecid": "<anonymised>",
+  "amr": [
+    "rsa",
+    "mfa"
+  ],
+  "appid": "<application-id>",
+  "appidacr": "0",
+  "deviceid": "<anonymised>",
+  "email": "<user>@domain.com",
+  "family_name": "<surname>",
+  "given_name": "<first-name>",
+  "groups": [
+    "<anonymised>",
+    "<anonymised>",
+    "<anonymised>",
+    "<anonymised>",
+    "<anonymised>",
+    "<anonymised>"
+  ],
+  "idp": "https://sts.windows.net/<directory-id>/",
+  "idtyp": "user",
+  "ipaddr": "<anonymised>",
+  "name": "<first-name> <surname>",
+  "oid": "<object-id>",
+  "puid": "<anonymised>",
+  "pwd_url": "https://portal.microsoftonline.com/ChangePassword.aspx",
+  "rh": "<anonymised>",
+  "scp": "user_impersonation",
+  "sid": "<anonymised>",
+  "sub": "<anonymised>",
+  "tid": "<tenant-id>",
+  "unique_name": "<user>@domain.com",
+  "uti": "<anonymised>",
+  "ver": "1.0",
+  "wids": [
+    "<anonymised>"
+  ],
+  "xms_ftd": "<anonymised>",
+  "xms_idrel": "1 30"
+}
 ```
