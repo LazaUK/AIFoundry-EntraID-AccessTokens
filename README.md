@@ -88,6 +88,8 @@ This will print all claims in a readable JSON format.
 ## 3. Understanding Key JWT Claims
 Below is a brief explanation of some commonly seen claims in Azure Entra ID access tokens:
 
+| JWT Claim                                    | Description                                                                     |
+| :------------------------------------------- | :------------------------------------------------------------------------------ |
 | `iss`                                        | Issuer — the token authority (usually your Entra ID tenant).                    |
 | `iat` / `nbf` / `exp`                        | Issued At / Not Before / Expiry — timestamps defining token validity.           |
 | `appid`                                      | Application ID of the client requesting the token.                              |
