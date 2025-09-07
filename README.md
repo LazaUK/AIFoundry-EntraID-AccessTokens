@@ -1,4 +1,4 @@
-# Azure Entra ID: Decoding JWT Access Token for Azure AI Foundry authentication & authorisation
+# Azure Entra ID: Decoding JWT Access Tokens
 
 Azure Entra ID (formerly Azure Active Directory) issues JWT access tokens, which contain various claims, e.g. group memberships. This guide walks you through on how to obtain such a token and decode it using Python.
 
